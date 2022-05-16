@@ -117,12 +117,12 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lsp-installer"] = {
-    config = { 'require("hugonijmek/setup/lsp")' },
     loaded = true,
     path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
     url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
+    config = { 'require("hugonijmek/setup/lsp")' },
     loaded = true,
     path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -150,18 +150,18 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-cmp]], true)
 require("hugonijmek/setup/nvim-cmp")
 time([[Config for nvim-cmp]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require("hugonijmek/setup/lualine")
-time([[Config for lualine.nvim]], false)
--- Config for: nvim-lsp-installer
-time([[Config for nvim-lsp-installer]], true)
-require("hugonijmek/setup/lsp")
-time([[Config for nvim-lsp-installer]], false)
 -- Config for: onedark.nvim
 time([[Config for onedark.nvim]], true)
 require("hugonijmek/setup/onedark")
 time([[Config for onedark.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("hugonijmek/setup/lualine")
+time([[Config for lualine.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require("hugonijmek/setup/lsp")
+time([[Config for nvim-lspconfig]], false)
 if should_profile then save_profiles() end
 
 end)

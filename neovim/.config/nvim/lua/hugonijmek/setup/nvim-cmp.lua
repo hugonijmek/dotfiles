@@ -7,6 +7,7 @@ end
 local ok, luasnip = pcall(require, 'luasnip')
 if not ok then
     --TODO: inform user what went wrong
+    print("luasnip could not be found.")
     return
 end
 

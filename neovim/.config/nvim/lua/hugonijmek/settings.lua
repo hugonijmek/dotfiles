@@ -22,14 +22,13 @@ local options = {
     errorbells = false,
     scrolloff = 8,
     swapfile = false,
-    backup = false,
     undofile = true,
     signcolumn = "yes",
     wrap = false,
     updatetime = 50,
 }
 
-for k, v in pairs(options) do 
+for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
