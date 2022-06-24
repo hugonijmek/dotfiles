@@ -15,12 +15,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
     vim.cmd [[packadd packer.nvim]]
 end
 
--- Automatically reload noevim whenever we save plugins.lua
+-- Automatically reload neovim whenever we save plugins.lua
 vim.cmd [[
-    augroup packer_user_config
-        autocmd!
-        autocmd BufWritePost plugins.lua source <afile> | PackerSync
-    augroup end
+augroup packer_user_config
+autocmd!
+autocmd BufWritePost plugins.lua source <afile> | PackerSync
+augroup end
 ]]
 
 local ok, packer = pcall(require, "packer")
@@ -57,13 +57,17 @@ return packer.startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons", opt = true }
     }
 
+    -- fuzzy finder
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { 'nvim-lua/plenary.nvim' }
+    }
+
     -- lsp
     use {
         'williamboman/nvim-lsp-installer',
-    }
-    use {
-        'neovim/nvim-lspconfig',
-        config = get_config('lsp')
+        requires = { 'neovim/nvim-lspconfig' },
+        config = get_config('lsp'),
     }
 
     use {
@@ -74,39 +78,38 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/cmp-nvim-lua"
-    use "hrsh7th/cmp-nvim-lsp"
+    --use "hrsh7th/cmp-nvim-lsp"
     use "saadparwaiz1/cmp_luasnip"
     use "L3MON4D3/LuaSnip"
+
+    -- treesitter
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        config = get_config("tree-sitter"),
+        run = ':TSUpdate'
+    }
+
+    -- github copilot
+    --use {
+    --    "github/copilot.vim"
+    --}
+    use {
+        "zbirenbaum/copilot.lua",
+        event = {"VimEnter"},
+        config = function()
+            vim.defer_fn(function()
+                require("copilot").setup {}
+            end, 100)
+        end,
+    }
+    use {
+        "zbirenbaum/copilot-cmp",
+        module = "copilot_cmp",
+        after = { "copilot.lua", "nvim-cmp" },
+    }
 
     --automatically sync on bootstrapping
     if PACKER_BOOTSTRAP then
         require('packer').sync()
     end
 end)
-
-
-
-
-
---require "paq" {
---    "savq/paq-nvim";
---
---    "navarasu/onedark.nvim";
---
---    "nvim-lualine/lualine.nvim";
---    "kyazdani42/nvim-web-devicons";
---
---    'nvim-lua/plenary.nvim';
---    'nvim-telescope/telescope.nvim';
---
---    'neovim/nvim-lspconfig';
---}
---
---require('onedark').load()
---require('lualine').setup {
---    options = {
---        theme = 'onedark'
---    }
---}
---
---require('lspconfig').gopls.setup {}

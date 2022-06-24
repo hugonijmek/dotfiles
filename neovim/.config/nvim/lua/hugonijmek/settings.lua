@@ -26,6 +26,7 @@ local options = {
     signcolumn = "yes",
     wrap = false,
     updatetime = 50,
+    completeopt = "menu,menuone,noinsert",
 }
 
 for k, v in pairs(options) do
