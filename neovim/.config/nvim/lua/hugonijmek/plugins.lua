@@ -16,6 +16,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Automatically reload neovim whenever we save plugins.lua
+-- TODO: change this to lua syntax
 vim.cmd [[
 augroup packer_user_config
 autocmd!
@@ -70,6 +71,7 @@ return packer.startup(function(use)
         config = get_config('lsp'),
     }
 
+    -- text completion
     use {
         "hrsh7th/nvim-cmp",
         config = get_config("nvim-cmp")
@@ -78,7 +80,7 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/cmp-nvim-lua"
-    --use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-nvim-lsp"
     use "saadparwaiz1/cmp_luasnip"
     use "L3MON4D3/LuaSnip"
 

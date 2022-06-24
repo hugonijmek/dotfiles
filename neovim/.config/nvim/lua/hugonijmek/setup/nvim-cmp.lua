@@ -10,11 +10,6 @@ if not luasnip_status_ok then
     return
 end
 
-local check_backspace = function()
-    local col = vim.fn.col "." - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
-
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -35,6 +30,9 @@ cmp.setup({
         { name = 'path' },
         { name = 'luasnip' },
         { name = 'buffer', keyword_length = 5 },
+    },
+    completion = {
+        keyword_length = 1,
     },
     window = {
         completion = cmp.config.window.bordered(),

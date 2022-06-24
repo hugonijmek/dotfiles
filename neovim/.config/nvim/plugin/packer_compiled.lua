@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
   },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
   ["cmp-nvim-lua"] = {
     loaded = true,
     path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
@@ -203,14 +208,6 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require("hugonijmek/setup/nvim-cmp")
-time([[Config for nvim-cmp]], false)
--- Config for: onedark.nvim
-time([[Config for onedark.nvim]], true)
-require("hugonijmek/setup/onedark")
-time([[Config for onedark.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require("hugonijmek/setup/tree-sitter")
@@ -219,10 +216,18 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for nvim-lsp-installer]], true)
 require("hugonijmek/setup/lsp")
 time([[Config for nvim-lsp-installer]], false)
+-- Config for: onedark.nvim
+time([[Config for onedark.nvim]], true)
+require("hugonijmek/setup/onedark")
+time([[Config for onedark.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require("hugonijmek/setup/lualine")
 time([[Config for lualine.nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require("hugonijmek/setup/nvim-cmp")
+time([[Config for nvim-cmp]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
