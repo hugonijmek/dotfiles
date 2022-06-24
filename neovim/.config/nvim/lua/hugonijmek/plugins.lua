@@ -110,6 +110,11 @@ return packer.startup(function(use)
         after = { "copilot.lua", "nvim-cmp" },
     }
 
+    use {
+        "simrat39/rust-tools.nvim",
+        config = get_config("rust-tools"),
+    }
+
     --automatically sync on bootstrapping
     if PACKER_BOOTSTRAP then
         require('packer').sync()

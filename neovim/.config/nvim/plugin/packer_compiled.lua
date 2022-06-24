@@ -172,6 +172,12 @@ _G.packer_plugins = {
     path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["rust-tools.nvim"] = {
+    config = { 'require("hugonijmek/setup/rust-tools")' },
+    loaded = true,
+    path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -208,14 +214,14 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require("hugonijmek/setup/tree-sitter")
-time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-lsp-installer
 time([[Config for nvim-lsp-installer]], true)
 require("hugonijmek/setup/lsp")
 time([[Config for nvim-lsp-installer]], false)
+-- Config for: rust-tools.nvim
+time([[Config for rust-tools.nvim]], true)
+require("hugonijmek/setup/rust-tools")
+time([[Config for rust-tools.nvim]], false)
 -- Config for: onedark.nvim
 time([[Config for onedark.nvim]], true)
 require("hugonijmek/setup/onedark")
@@ -228,6 +234,10 @@ time([[Config for lualine.nvim]], false)
 time([[Config for nvim-cmp]], true)
 require("hugonijmek/setup/nvim-cmp")
 time([[Config for nvim-cmp]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require("hugonijmek/setup/tree-sitter")
+time([[Config for nvim-treesitter]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
