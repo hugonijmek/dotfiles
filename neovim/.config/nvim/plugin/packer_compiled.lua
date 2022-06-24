@@ -214,18 +214,6 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: nvim-lsp-installer
-time([[Config for nvim-lsp-installer]], true)
-require("hugonijmek/setup/lsp")
-time([[Config for nvim-lsp-installer]], false)
--- Config for: rust-tools.nvim
-time([[Config for rust-tools.nvim]], true)
-require("hugonijmek/setup/rust-tools")
-time([[Config for rust-tools.nvim]], false)
--- Config for: onedark.nvim
-time([[Config for onedark.nvim]], true)
-require("hugonijmek/setup/onedark")
-time([[Config for onedark.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require("hugonijmek/setup/lualine")
@@ -238,6 +226,18 @@ time([[Config for nvim-cmp]], false)
 time([[Config for nvim-treesitter]], true)
 require("hugonijmek/setup/tree-sitter")
 time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-lsp-installer
+time([[Config for nvim-lsp-installer]], true)
+require("hugonijmek/setup/lsp")
+time([[Config for nvim-lsp-installer]], false)
+-- Config for: rust-tools.nvim
+time([[Config for rust-tools.nvim]], true)
+require("hugonijmek/setup/rust-tools")
+time([[Config for rust-tools.nvim]], false)
+-- Config for: onedark.nvim
+time([[Config for onedark.nvim]], true)
+require("hugonijmek/setup/onedark")
+time([[Config for onedark.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
