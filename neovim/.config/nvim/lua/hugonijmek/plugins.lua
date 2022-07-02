@@ -46,9 +46,14 @@ return packer.startup(function(use)
     use "wbthomason/packer.nvim"
 
     -- theme
+    --use {
+    --    "navarasu/onedark.nvim",
+    --    config = get_config("onedark")
+    --}
+
     use {
-        "navarasu/onedark.nvim",
-        config = get_config("onedark")
+        "folke/tokyonight.nvim", { branch = "main" },
+        config = get_config("tokyonight")
     }
 
     -- status bar
@@ -84,6 +89,11 @@ return packer.startup(function(use)
     use "saadparwaiz1/cmp_luasnip"
     use "L3MON4D3/LuaSnip"
 
+    use {
+        "windwp/nvim-autopairs",
+        config = get_config("autopairs")
+    }
+
     -- treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -107,7 +117,6 @@ return packer.startup(function(use)
     use {
         "zbirenbaum/copilot-cmp",
         module = "copilot_cmp",
-        after = { "copilot.lua", "nvim-cmp" },
     }
 
     use {

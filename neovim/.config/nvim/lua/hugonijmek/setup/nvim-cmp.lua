@@ -58,6 +58,8 @@ local duplicates = {
     luasnip = 1,
 }
 
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg = "#6CC644"})
+
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -81,16 +83,12 @@ cmp.setup({
     },
     formatting = {
       fields = { "kind", "abbr", "menu" },
-      max_width = 0,
-      duplicates_default = 0,
       format = function(entry, vim_item)
-        local max_width = 0
-        if max_width ~= 0 and #vim_item.abbr > max_width then
-          vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. "…"
-        end
         if entry.source.name == "copilot" then
             vim_item.kind = "Copilot"
+            vim_item.kind_hl_group = "CmpItemKindCopilot"
         end
+
         vim_item.kind = kind_icons[vim_item.kind]
         vim_item.menu = source_names[entry.source.name]
         vim_item.dup = duplicates[entry.source.name]

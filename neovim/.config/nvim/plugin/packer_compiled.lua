@@ -105,9 +105,6 @@ _G.packer_plugins = {
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["copilot-cmp"] = {
-    load_after = {
-      ["copilot.lua"] = true
-    },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -115,7 +112,6 @@ _G.packer_plugins = {
     url = "https://github.com/zbirenbaum/copilot-cmp"
   },
   ["copilot.lua"] = {
-    after = { "copilot-cmp" },
     config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fcopilot\frequire-\1\0\4\0\3\0\0066\0\0\0009\0\1\0003\2\2\0)\3d\0B\0\3\1K\0\1\0\0\rdefer_fn\bvim\0" },
     loaded = false,
     needs_bufread = false,
@@ -129,10 +125,17 @@ _G.packer_plugins = {
     path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["nvim-cmp"] = {
-    after = { "copilot-cmp" },
+  ["nvim-autopairs"] = {
+    config = { 'require("hugonijmek/setup/autopairs")' },
     loaded = true,
-    only_config = true
+    path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
+  ["nvim-cmp"] = {
+    config = { 'require("hugonijmek/setup/nvim-cmp")' },
+    loaded = true,
+    path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lsp-installer"] = {
     config = { 'require("hugonijmek/setup/lsp")' },
@@ -156,12 +159,6 @@ _G.packer_plugins = {
     path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["onedark.nvim"] = {
-    config = { 'require("hugonijmek/setup/onedark")' },
-    loaded = true,
-    path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/navarasu/onedark.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -182,6 +179,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/hugo/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   }
 }
 
@@ -214,10 +216,14 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require("hugonijmek/setup/lualine")
-time([[Config for lualine.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require("hugonijmek/setup/autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: rust-tools.nvim
+time([[Config for rust-tools.nvim]], true)
+require("hugonijmek/setup/rust-tools")
+time([[Config for rust-tools.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require("hugonijmek/setup/nvim-cmp")
@@ -226,18 +232,14 @@ time([[Config for nvim-cmp]], false)
 time([[Config for nvim-treesitter]], true)
 require("hugonijmek/setup/tree-sitter")
 time([[Config for nvim-treesitter]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("hugonijmek/setup/lualine")
+time([[Config for lualine.nvim]], false)
 -- Config for: nvim-lsp-installer
 time([[Config for nvim-lsp-installer]], true)
 require("hugonijmek/setup/lsp")
 time([[Config for nvim-lsp-installer]], false)
--- Config for: rust-tools.nvim
-time([[Config for rust-tools.nvim]], true)
-require("hugonijmek/setup/rust-tools")
-time([[Config for rust-tools.nvim]], false)
--- Config for: onedark.nvim
-time([[Config for onedark.nvim]], true)
-require("hugonijmek/setup/onedark")
-time([[Config for onedark.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
