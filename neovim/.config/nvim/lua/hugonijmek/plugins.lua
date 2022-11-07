@@ -105,19 +105,19 @@ return packer.startup(function(use)
     --use {
     --    "github/copilot.vim"
     --}
-    use {
-        "zbirenbaum/copilot.lua",
-        event = {"VimEnter"},
-        config = function()
-            vim.defer_fn(function()
-                require("copilot").setup {}
-            end, 100)
-        end,
-    }
-    use {
-        "zbirenbaum/copilot-cmp",
-        module = "copilot_cmp",
-    }
+--    use {
+--        "zbirenbaum/copilot.lua",
+--        event = {"VimEnter"},
+--        config = function()
+--            vim.defer_fn(function()
+--                require("copilot").setup {}
+--            end, 100)
+--        end,
+--    }
+--    use {
+--        "zbirenbaum/copilot-cmp",
+--        module = "copilot_cmp",
+--    }
 
     use {
         "simrat39/rust-tools.nvim",
