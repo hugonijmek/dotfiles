@@ -43,3 +43,7 @@ lspconfig.sumneko_lua.setup {
 lspconfig.rust_analyzer.setup {
     on_attach = on_attach
 }
+
+lspconfig.gopls.setup {
+    on_attach = on_attach
+}
