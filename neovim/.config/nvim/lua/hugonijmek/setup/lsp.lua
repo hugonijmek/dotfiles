@@ -45,5 +45,14 @@ lspconfig.rust_analyzer.setup {
 }
 
 lspconfig.gopls.setup {
-    on_attach = on_attach
+    on_attach = on_attach,
+    cmd = { "gopls", "serve" },
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        }
+    }
 }
