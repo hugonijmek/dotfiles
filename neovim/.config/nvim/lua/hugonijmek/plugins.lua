@@ -45,12 +45,7 @@ end
 return packer.startup(function(use)
     use "wbthomason/packer.nvim"
 
-    -- theme
-    --use {
-    --    "navarasu/onedark.nvim",
-    --    config = get_config("onedark")
-    --}
-
+    -- Theme
     use {
         "folke/tokyonight.nvim", { branch = "main" },
         config = get_config("tokyonight")
@@ -70,10 +65,27 @@ return packer.startup(function(use)
     }
 
     -- lsp
+--    use {
+        --'williamboman/nvim-lsp-installer',
+        --requires = { 'neovim/nvim-lspconfig' },
+        --config = get_config('lsp'),
+    --}
     use {
-        'williamboman/nvim-lsp-installer',
-        requires = { 'neovim/nvim-lspconfig' },
-        config = get_config('lsp'),
+        'williamboman/mason.nvim',
+        config = get_config('mason'),
+    }
+    use {
+        'williamboman/mason-lspconfig.nvim',
+        requires = { 'williamboman/mason.nvim' },
+        config = get_config('mason-lspconfig'),
+    }
+    use {
+        'neovim/nvim-lspconfig',
+        requires = { 'williamboman/mason-lspconfig.nvim' },
+    }
+    use {
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        config = get_config('mason-tool-installer'),
     }
 
     -- text completion

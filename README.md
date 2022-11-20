@@ -9,6 +9,7 @@ brew install rustup-init
 brew install neovim
 brew install stow
 brew install --cask kitty
+brew install tree
 
 brew install nvm
 
