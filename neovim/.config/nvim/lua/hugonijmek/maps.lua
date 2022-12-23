@@ -7,4 +7,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 map("n", "<Leader>ff", "<cmd> lua require('telescope.builtin').find_files()<CR>", opts)
---map("n", "<Leader>fc", "<cmd> lua require('telescope').extensions.file_browser.actions.create_from_prompt()<CR>", opts)
+map("n", "<Leader>fb", ":Telescope file_browser<CR>", opts)
+map("n", "<C-d>", "<C-d>zz", opts)
+map("n", "<C-u>", "<C-u>zz", opts)

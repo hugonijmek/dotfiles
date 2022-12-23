@@ -146,6 +146,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
+    config = { 'require("hugonijmek/setup/lsp")' },
     loaded = true,
     path = "/Users/hugo.nijhuis/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -178,7 +179,13 @@ _G.packer_plugins = {
     path = "/Users/hugo.nijhuis/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
+  ["telescope-file-browser.nvim"] = {
+    loaded = true,
+    path = "/Users/hugo.nijhuis/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
+  },
   ["telescope.nvim"] = {
+    config = { 'require("hugonijmek/setup/telescope")' },
     loaded = true,
     path = "/Users/hugo.nijhuis/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
@@ -191,38 +198,46 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: mason-tool-installer.nvim
-time([[Config for mason-tool-installer.nvim]], true)
-require("hugonijmek/setup/mason-tool-installer")
-time([[Config for mason-tool-installer.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require("hugonijmek/setup/lualine")
-time([[Config for lualine.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require("hugonijmek/setup/autopairs")
-time([[Config for nvim-autopairs]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require("hugonijmek/setup/tree-sitter")
 time([[Config for nvim-treesitter]], false)
--- Config for: mason-lspconfig.nvim
-time([[Config for mason-lspconfig.nvim]], true)
-require("hugonijmek/setup/mason-lspconfig")
-time([[Config for mason-lspconfig.nvim]], false)
+-- Config for: mason-tool-installer.nvim
+time([[Config for mason-tool-installer.nvim]], true)
+require("hugonijmek/setup/mason-tool-installer")
+time([[Config for mason-tool-installer.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require("hugonijmek/setup/nvim-cmp")
 time([[Config for nvim-cmp]], false)
--- Config for: rust-tools.nvim
-time([[Config for rust-tools.nvim]], true)
-require("hugonijmek/setup/rust-tools")
-time([[Config for rust-tools.nvim]], false)
 -- Config for: mason.nvim
 time([[Config for mason.nvim]], true)
 require("hugonijmek/setup/mason")
 time([[Config for mason.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require("hugonijmek/setup/autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: rust-tools.nvim
+time([[Config for rust-tools.nvim]], true)
+require("hugonijmek/setup/rust-tools")
+time([[Config for rust-tools.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("hugonijmek/setup/lualine")
+time([[Config for lualine.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require("hugonijmek/setup/lsp")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require("hugonijmek/setup/telescope")
+time([[Config for telescope.nvim]], false)
+-- Config for: mason-lspconfig.nvim
+time([[Config for mason-lspconfig.nvim]], true)
+require("hugonijmek/setup/mason-lspconfig")
+time([[Config for mason-lspconfig.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

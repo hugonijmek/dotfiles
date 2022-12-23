@@ -61,7 +61,11 @@ return packer.startup(function(use)
     -- fuzzy finder
     use {
         'nvim-telescope/telescope.nvim',
+        config = get_config("telescope"),
         requires = { 'nvim-lua/plenary.nvim' }
+    }
+    use {
+        'nvim-telescope/telescope-file-browser.nvim'
     }
 
     -- lsp
@@ -82,6 +86,7 @@ return packer.startup(function(use)
     use {
         'neovim/nvim-lspconfig',
         requires = { 'williamboman/mason-lspconfig.nvim' },
+        config = get_config('lsp'),
     }
     use {
         'WhoIsSethDaniel/mason-tool-installer.nvim',

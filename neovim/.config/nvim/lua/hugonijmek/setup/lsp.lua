@@ -1,4 +1,3 @@
-require("nvim-lsp-installer").setup {}
 local lspconfig = require("lspconfig")
 
 local opts = { noremap=true, silent=true }

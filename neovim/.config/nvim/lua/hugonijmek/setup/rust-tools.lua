@@ -2,11 +2,13 @@ local has_rust_tools, rust_tools = pcall(require, "rust-tools")
 if not has_rust_tools then
     print("Rust tools not found, skipping rust-tools")
 else
+    print("setting up rust tools")
     rust_tools.setup ({
         tools = {
             autoSetHints = true,
             hover_with_actions = true,
             inlay_hints = {
+                auto = true,
                 only_current_line = false,
                 only_current_line_autocmd = "CursorHold",
                 show_parameter_hints = true,
