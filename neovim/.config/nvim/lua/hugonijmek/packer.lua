@@ -78,6 +78,17 @@ return packer.startup(function(use)
         }
     }
 
+    -- Copilot setup in cmp
+    --use("github/copilot.vim")
+    use { "zbirenbaum/copilot.lua" }
+    use {
+        "zbirenbaum/copilot-cmp",
+        after = { "copilot.lua" },
+        config = function ()
+            require("copilot_cmp").setup()
+        end
+    }
+
     if PACKER_BOOTSTRAP then
         require('packer').sync()
     end

@@ -24,3 +24,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.g.mapleader = " "
+
+-- Make sure panels open on the rightside
+vim.opt.splitright = true
+vim.opt.splitbelow = true

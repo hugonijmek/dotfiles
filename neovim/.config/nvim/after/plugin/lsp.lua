@@ -29,8 +29,12 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab'] = nil
 
+local cmp_sources = lsp.defaults.cmp_sources()
+table.insert(cmp_sources, { name = 'copilot', group_index = 2 })
+
 lsp.setup_nvim_cmp({
-	mapping = cmp_mappings
+	mapping = cmp_mappings,
+    sources = cmp_sources 
 })
 
 lsp.set_preferences({
