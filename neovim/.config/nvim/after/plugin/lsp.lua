@@ -22,10 +22,14 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({ select = true }),
+	['<C-y>'] = cmp.mapping.confirm({
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = true, 
+    }),
 	['<C-Space>'] = cmp.mapping.complete(),
 })
 
+cmp_mappings['<CR>'] = nil
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab'] = nil
 
@@ -34,7 +38,7 @@ table.insert(cmp_sources, { name = 'copilot', group_index = 2 })
 
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
-    sources = cmp_sources 
+    sources = cmp_sources
 })
 
 lsp.set_preferences({
