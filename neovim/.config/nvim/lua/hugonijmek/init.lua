@@ -1,3 +1,3 @@
-require("hugonijmek.packer")
+require("hugonijmek.lazy")
 require("hugonijmek.set")
 require("hugonijmek.remap")
