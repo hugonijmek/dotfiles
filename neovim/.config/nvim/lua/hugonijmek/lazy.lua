@@ -76,4 +76,6 @@ require("lazy").setup({
             require("copilot_cmp").setup()
         end
     },
+
+    'simrat39/rust-tools.nvim'
 })

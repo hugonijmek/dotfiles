@@ -17,6 +17,8 @@ lsp.configure('lua_ls', {
     }
 })
 
+local rust_lsp = lsp.build_options('rust_analyzer', {})
+
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -66,3 +68,5 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+require('rust-tools').setup({server = rust_lsp})
